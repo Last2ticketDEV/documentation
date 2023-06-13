@@ -91,6 +91,7 @@ PUT /discount-code/discount_1/event/event_50
 ```
 
 ### List 
+List discount codes for event_id
 ```
 GET /discount-code/list/event/<EVENT_ID>?api_key=<YOUR_API_KEY>
 ```
@@ -140,6 +141,37 @@ Payload sample
     "event_id": 500,
     "item_id": [10, 20]
 }
+```
+
+
+### Get details
+Get a discount code detailed information.
+``` 
+GET /discount-code/<DISCOUNT_ID>?api_key=<YOUR_API_KEY>
+```
+Response
+```
+"message": {
+    "discount_id": "12345",
+    "text": "Discount details",
+    "discount": "[{\"id\":12345,\"type\":\"percent\",\"value\":\"5.0000\",\"code\":\"MEGA\",\"limit\":100,\"in_cart\":0,\"used\":0,\"expires\":\"2023-12-21\",\"active\":\"yes\"}]"
+},
+```
+
+### Get discount events
+Get discount code events (and items) for discount_id
+``` 
+GET /discount-code/<DISCOUNT_ID>/events?api_key=<YOUR_API_KEY>
+``` 
+Response
+```
+"message": {
+    "discount_id": "12345",
+    "text": "Discount details",
+    "discount": "[
+        {\"id\":444,\"discount_id\":12345,\"events_id\":500,\"item_id\":10},
+        {\"id\":239007,\"discount_id\":14533,\"events_id\":500,\"item_id\":20}]"
+},
 ```
 
 ### Activate
@@ -274,7 +306,7 @@ Response
 
 
 ### Delete event
-Delete the association id between an even and an existing discount code
+Delete the association id between an event and an existing discount code
 
 ``` 
 DELETE /discount-code/<DISCOUNT_ID>/event/<EVENT_ID>?api_key=<YOUR_API_KEY>
