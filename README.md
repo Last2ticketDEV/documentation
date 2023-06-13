@@ -58,7 +58,7 @@ External code not found - this code is not associated with any sold ticket in La
 
 
 ## Discount codes
-Create new discount codes for specific events that you are the owner. Add and remove events and items to discount codes.
+Create new discount codes for specific events owned by you. Add and remove events and items to discount codes.
 
 There are specific operations for /PUT /GET and /DELETE for just event_id and event_id + item_id combination. 
 This means users can add specific items under an event just like in UX. But removing all event_id + item_id will not create a simple discount->item association like it happens in UX, this is not intuitive in an API. 
@@ -76,14 +76,16 @@ He then removes the 2 items with:
 DELETE /discount-code/discount_1/event/event_50/item/item_1
 DELETE /discount-code/discount_1/event/event_50/item/item_2
 ```
-What is the expected result of ? 
+
+In the API the result of the following endpoints will be empty,
 
 ```
 LIST /discount-code/discount_1/events
 GET /discount-code/discount_1/event/event_50
 ```
 
-In the API the result will be empty, in the Admin app UX, the result is actually 1, because the UX is adding a record for discount_1 - event_50 when all items are removed for an event
+In the Admin app UX, the result is actually 1 record, because the UX is adding a record for discount_1 - event_50 when all items are removed for an event.
+To achieve similar behaviour add the relation explicitly after the 2 deletes: 
 ```
 PUT /discount-code/discount_1/event/event_50
 ```
@@ -140,6 +142,33 @@ Payload sample
 }
 ```
 
+### Activate
+Activate a discount code.
+```
+PUT /discount-code/<DISCOUNT_ID>/activate?api_key=<YOUR_API_KEY>
+```
+Response
+```
+"message": {
+    "discount_id": "DISCOUNT_ID",
+    "text": "Activated discount: DISCOUNT_ID",
+    "active": "yes"
+},
+```
+
+### Deactivate
+Deactivate a discount code.
+```
+PUT /discount-code/<DISCOUNT_ID>/deactivate?api_key=<YOUR_API_KEY>
+```
+Response
+```
+"message": {
+    "discount_id": "DISCOUNT_ID",
+    "text": "Deactivate discount: DISCOUNT_ID",
+    "active": "no"
+},
+```
 
 ### Add item
 Associate an item to an existing discount code
@@ -215,7 +244,7 @@ Response
 ```
 
 ### Get event
-Get the association id between an even and an existing discount code
+Get the association id between an event and an existing discount code
 
 ``` 
 GET /discount-code/<DISCOUNT_ID>/event/<EVENT_ID>?api_key=<YOUR_API_KEY>
@@ -230,13 +259,13 @@ Response
         {
             "id": 12345,
             "discount_id": DISCOUNT_ID,
-            "events_id": EVENT_ID,
+            "event_id": EVENT_ID,
             "item_id": 10
         },
         {
             "id": 54321,
             "discount_id": DISCOUNT_ID,
-            "events_id": EVENT_ID,
+            "event_id": EVENT_ID,
             "item_id": 20
         }
     ]
