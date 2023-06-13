@@ -61,7 +61,7 @@ External code not found - this code is not associated with any sold ticket in La
 Create new discount codes for specific events owned by you. Add and remove events and items to discount codes.
 
 There are specific operations for /PUT /GET and /DELETE for just event_id and event_id + item_id combination. 
-This means users can add specific items under an event just like in UX. But removing all event_id + item_id will not create a simple discount->item association like it happens in UX, this is not intuitive in an API. 
+This means users can add specific items under an event just like in UX. But removing all event_id + item_id will not create a simple discount->item relation like it happens in UX, this is not intuitive in an API. 
 
 
 Example: User lists records in api_discount_codes_events for discount_1 and gets
@@ -167,10 +167,10 @@ Response
 ```
 "message": {
     "discount_id": "12345",
-    "text": "Discount details",
-    "discount": "[
+    "text": "Discount events list",
+    "discount_events": "[
         {\"id\":444,\"discount_id\":12345,\"events_id\":500,\"item_id\":10},
-        {\"id\":239007,\"discount_id\":14533,\"events_id\":500,\"item_id\":20}]"
+        {\"id\":239007,\"discount_id\":12345,\"events_id\":500,\"item_id\":20}]"
 },
 ```
 
@@ -215,12 +215,12 @@ Response
     "event_id": "EVENT_ID",
     "item_id": "ITEM_ID",
     "text": "Added event+item to discount",
-    "association_id": 123456
+    "relation_id": 123456
 }
 ```
 
 ### Get item
-Get the association id between an item to an existing discount code
+Get the relation id between an item to an existing discount code
 
 ```
 GET discount-code/<DISCOUNT_ID>/event/<EVENT_ID>/item/<ITEM_ID>?api_key=<YOUR_API_KEY>
@@ -232,8 +232,8 @@ Response
     "discount_id": "DISCOUNT_ID",
     "event_id": "EVENT_ID",
     "item_id": "ITEM_ID",
-    "text": "Got event+item association to discount",
-    "association": {
+    "text": "Got event+item relation to discount",
+    "relation": {
         "id": EVENT_ID,
         "discount_id": DISCOUNT_ID,
         "events_id": EVENT_ID,
@@ -243,7 +243,7 @@ Response
 ```
 
 ### Delete item
-Delete the association between an item and a discount code
+Delete the relation between an item and a discount code
 
 ```
 DELETE /discount-code/<DISCOUNT_ID>/event/<EVENT_ID>/item/<ITEM_ID>?api_key=<YOUR_API_KEY>
@@ -271,12 +271,12 @@ Response
     "discount_id": "DISCOUNT_ID",
     "event_id": "EVENT_ID",
     "text": "Added event to discount",
-    "association_id": 12345
+    "relation_id": 12345
 },
 ```
 
 ### Get event
-Get the association id between an event and an existing discount code
+Get the relation id between an event and an existing discount code
 
 ``` 
 GET /discount-code/<DISCOUNT_ID>/event/<EVENT_ID>?api_key=<YOUR_API_KEY>
@@ -286,8 +286,8 @@ Response
 "message": {
     "discount_id": "DISCOUNT_ID",
     "event_id": "EVENT_ID",
-    "text": "Got event+item association to discount",
-    "associations": [
+    "text": "Got event+item relation to discount",
+    "relations": [
         {
             "id": 12345,
             "discount_id": DISCOUNT_ID,
@@ -306,7 +306,7 @@ Response
 
 
 ### Delete event
-Delete the association id between an event and an existing discount code
+Delete the relation id between an event and an existing discount code
 
 ``` 
 DELETE /discount-code/<DISCOUNT_ID>/event/<EVENT_ID>?api_key=<YOUR_API_KEY>
@@ -317,7 +317,7 @@ DELETE /discount-code/<DISCOUNT_ID>/event/<EVENT_ID>?api_key=<YOUR_API_KEY>
     "discount_id": "DISCOUNT_ID",
     "event_id": "EVENT_ID",
     "text": "Deleted event from discount",
-    "association_id": true
+    "relation_id": true
 },
 ```
 
