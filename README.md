@@ -26,6 +26,29 @@ https://api.last2ticket.com/some/endpoint?api_key=<YOUR_API_KEY>
 
 ---
 # Endpoints
+## Events
+### /events/list
+List the events the user has permissions to view.
+```
+https://api.last2ticket.com/events/list?api_key=<YOUR_API_KEY>
+```
+
+##### Success Response
+```
+{
+    "stt": "OK",
+    "message": {
+        "text": "List of events user - [USER_ID] can view.",
+        "events": [
+            EVENT_1,
+            EVENT_2,
+            EVENT_3,
+            ...
+        ]
+    }
+}
+```
+
 ## Tickets
 ###  /ticket/checkin/code/{code}
 Ticket checking, this endpoint is used to checkin in last2ticket system a ticket with your specific vendor id (external_id) that you use in your platform. 
