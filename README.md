@@ -125,6 +125,7 @@ Input parameters
 - **active** : boolean - If the discount is active or inactive.
 - **event_id(*)** : number - The event to which this discount will apply.
 - **item_id** : array[number] - Specific items inside an event (e.g. [10, 20], the discount will apply only to event item 10 and 20). In no items are provided, the discount applies to the whole event_id.
+- **show_invites**: number [0, 1] - This allows users using Generic invite UI to see the receipients list of discount code. If set to 0, users will not see the list, 1 users see the list.
 
 **(*)** - required
 
@@ -139,7 +140,8 @@ Payload sample
     "expires": "2023-12-21",
     "active": true,
     "event_id": 500,
-    "item_id": [10, 20]
+    "item_id": [10, 20],
+    "show_invites": 1
 }
 ```
 
