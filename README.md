@@ -49,6 +49,36 @@ https://api.last2ticket.com/events/list?api_key=<YOUR_API_KEY>
 }
 ```
 
+List the event items. The list includes all items that are active and is not ('sold_out','not_available', 'available_soon’).
+```
+https://api.last2ticket.com/events/<EVENT_ID>/items?api_key=<YOUR_API_KEY>
+```
+
+##### Success Response
+```
+{
+    "stt": "OK",
+    "message": {
+        "text": List of items for event [EVENT_ID].",
+        "items": [
+            {
+                "id": ITEM_1,
+                "event_id": EVENT_ID,
+                "session_id": SESSION_A,
+                "price": "10.0000",
+                "category_name": "Bilhete XPTO"
+            }, {
+                "id": ITEM_2,
+                "event_id": EVENT_ID,
+                "session_id": SESSION_B,
+                "price": "5.0000",
+                "category_name": "Bilhete ABCD"
+            }
+        ]
+    }
+}
+```
+
 ## Tickets
 ###  /ticket/checkin/code/{code}
 Ticket checking, this endpoint is used to checkin in last2ticket system a ticket with your specific vendor id (external_id) that you use in your platform. 
