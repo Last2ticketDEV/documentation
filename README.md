@@ -49,6 +49,7 @@ https://api.last2ticket.com/events/list?api_key=<YOUR_API_KEY>
 }
 ```
 
+### /events/{event_id}/items
 List the event items. The list includes all items that are active and is not ('sold_out','not_available', 'available_soon’).
 ```
 https://api.last2ticket.com/events/<EVENT_ID>/items?api_key=<YOUR_API_KEY>
