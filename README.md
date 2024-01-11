@@ -27,6 +27,38 @@ https://api.last2ticket.com/some/endpoint?api_key=<YOUR_API_KEY>
 ---
 # Endpoints
 ## Events
+
+### /events/{event_id}
+Get the event details (name, description, etc)  for a given event_id
+```
+https://api.last2ticket.com/events/<EVENT_ID>?api_key=<YOUR_API_KEY>
+```
+
+##### Success Response
+```
+{
+    "stt": "OK",
+    "Event": {
+        "id": EVENT_ID,
+        "name": "MY BIG EVENT",
+        "user_id": USER_ID,
+        "label": null,
+        "date": "2024-01-11 09:30:53",
+        "description": "Very cool event",
+        "image": null,
+        "priority": 0,
+        "show_in_home": "no",
+        "event_status": null,
+        "plugin": "0",
+        "options": null,
+        "create_invoice": "no",
+        "template_id": null,
+        "is_dirty": false
+    }
+}
+```
+
+
 ### /events/list
 List the events the user has permissions to view.
 ```
