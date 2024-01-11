@@ -426,63 +426,41 @@ E.g. HTTP 400 - Invalid code
 Get sales related to a specific event_id. Returns a list of orders and order details.
 
 ```
-GET /graph/exportevent/<EVENT_ID>?api_key=<YOUR_API_KEY>
+GET /graph/exportsales/<EVENT_ID>?api_key=<YOUR_API_KEY>
 ```
 
 Response (note values are fake, for exemple only)
 ```
-{
-    "stt": "OK",
-    "Event_<EVENT_ID>": [
-        {
-            "order_id": 12345,
-            "order_item_id": 54321,
-            "ticket_number": "123456789",
-            "customer_id": 000123,
-            "customer_name": "Miguel Miguel",
-            "customer_email": "miguel@nope.com",
-            "extra_info": {
-                "nation": "Estrangeiro",
-                "method": "Dinheiro",
-                "operator": "FITL2023",
-                "vat": "",
-                "client_name": "",
-                "create_invoice": false,
-                "lang": "en",
-                "origin": "posweb",
-                "extra": "Miguel Miguel",
-                "show_ticket": true,
-                "location": ""
-            },
-            "price": "40,00",
-            "discount_code": null,
-            "discount": "0,00",
-            "total_order": "400,00",
-            "order_status": "paid",
-            "payment": "cash",
-            "payment_country": null,
-            "date_paid": "11-01-2024",
-            "hour_paid": "15:08:44",
-            "category": "11th Jan | 23h",
-            "seat": null,
-            "zone": null,
-            "checkin": "SOLD",
-            "validations": null,
-            "session_name": "Evening Chillhouse session",
-            "session_date_start": "2024-01-11 23:00:00",
-            "user_name": "Adriana Fernandes",
-            "user_phone": null,
-            "billing_name": null,
-            "billing_vat": null,
-            "billing_address": null,
-            "billing_postcode": null,
-            "billing_city": null,
-            "billing_country": null,
-            "access_code": null,
-            "operator_id": 205162,
-            "item_extra_info": null
-        }, ...
-    ]
-}
+"Event_4843": [
+    {
+        "checkin_date_enter": null,
+        "checkin_status": null,
+        "date_paid": "2024-01-11 16:00:00",
+        "order_id": 1234567,
+        "order_item_id": 7654321,
+        "total_order_price": "400.0000",
+        "payment_method_id": 5,
+        "payment_name": "cash",
+        "event_id": 4843,
+        "name": "TABLE ----- RESERVATION for Evening Milongas | Lisbon Tango Festival 2023",
+        "total_order_tickets": 10,
+        "price_per_ticket": "40.0000",
+        "cat_id": 9193,
+        "description": "TABLE ----- RESERVATION for Evening Milongas | Lisbon Tango Festival 2023 | 2023-05-31 22:00:00 | 31st May | 23h",
+        "category_names": "31st May | 23h",
+        "session_start_date": "2023-05-31 22:00:00",
+        "customer_name": "Mike Miguel",
+        "phone": null,
+        "country": "NF",
+        "billing_name": null,
+        "billing_address": null,
+        "billing_postcode": null,
+        "billing_city": null,
+        "billing_country": null,
+        "email": "mike@miguel.com",
+        "billing_vat": null,
+        "source": "pos_web"
+    },
+
 ```
 
