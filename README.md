@@ -419,3 +419,70 @@ E.g. HTTP 400 - Invalid code
     "message":"[Invalid request] Code: MEGA_SALE_2022 already in use, please select a new one."
 }
 ```
+
+
+## Graph
+### Export sales
+Get sales related to a specific event_id. Returns a list of orders and order details.
+
+```
+GET /graph/exportevent/<EVENT_ID>?api_key=<YOUR_API_KEY>
+```
+
+Response (note values are fake, for exemple only)
+```
+{
+    "stt": "OK",
+    "Event_<EVENT_ID>": [
+        {
+            "order_id": 12345,
+            "order_item_id": 54321,
+            "ticket_number": "123456789",
+            "customer_id": 000123,
+            "customer_name": "Miguel Miguel",
+            "customer_email": "miguel@nope.com",
+            "extra_info": {
+                "nation": "Estrangeiro",
+                "method": "Dinheiro",
+                "operator": "FITL2023",
+                "vat": "",
+                "client_name": "",
+                "create_invoice": false,
+                "lang": "en",
+                "origin": "posweb",
+                "extra": "Miguel Miguel",
+                "show_ticket": true,
+                "location": ""
+            },
+            "price": "40,00",
+            "discount_code": null,
+            "discount": "0,00",
+            "total_order": "400,00",
+            "order_status": "paid",
+            "payment": "cash",
+            "payment_country": null,
+            "date_paid": "11-01-2024",
+            "hour_paid": "15:08:44",
+            "category": "11th Jan | 23h",
+            "seat": null,
+            "zone": null,
+            "checkin": "SOLD",
+            "validations": null,
+            "session_name": "Evening Chillhouse session",
+            "session_date_start": "2024-01-11 23:00:00",
+            "user_name": "Adriana Fernandes",
+            "user_phone": null,
+            "billing_name": null,
+            "billing_vat": null,
+            "billing_address": null,
+            "billing_postcode": null,
+            "billing_city": null,
+            "billing_country": null,
+            "access_code": null,
+            "operator_id": 205162,
+            "item_extra_info": null
+        }, ...
+    ]
+}
+```
+
