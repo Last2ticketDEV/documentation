@@ -464,3 +464,33 @@ Response (note values are fake, for exemple only)
 
 ```
 
+## User
+### Customers list
+Get list of customers (who bough tickets) of any event from a specific user
+
+
+```
+GET /user/customers?api_key=<YOUR_API_KEY>
+```
+
+Response (note values are fake, for exemple only)
+```
+{
+    "stt": "OK",
+    "customers": [
+        {
+            "customer_id": 123456,
+            "customer_name": "Pink Panther ",
+            "email": "panther@pink.com",
+            "phone": "220000000",
+            "country": "Portugal",
+            "newsletter": "no",
+            "billing_name": null,
+            "billing_address": null,
+            "billing_postcode": null,
+            "billing_city": null,
+            "billing_country": null,
+            "billing_vat": null
+        }, ...
+
+```  
