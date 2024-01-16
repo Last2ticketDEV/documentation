@@ -480,7 +480,7 @@ Response (note values are fake, for exemple only)
     "customers": [
         {
             "customer_id": 123456,
-            "customer_name": "Pink Panther ",
+            "customer_name": "Pink Panther",
             "email": "panther@pink.com",
             "phone": "220000000",
             "country": "Portugal",
