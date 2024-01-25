@@ -429,7 +429,11 @@ Get sales related to a specific event_id. Returns a list of orders and order det
 GET /graph/exportsales/<EVENT_ID>?api_key=<YOUR_API_KEY>
 ```
 
-Response (note values are fake, for exemple only)
+Optional query parameters available:
+* start - filters results by `date_paid >= customer_created_start`
+* end - filters results by `date_paid <= customer_created_end`
+
+Response (note values are fake, for example only)
 ```
 "Event_4843": [
     {
@@ -473,7 +477,11 @@ Get list of customers (who bough tickets) of any event from a specific user
 GET /user/customers?api_key=<YOUR_API_KEY>
 ```
 
-Response (note values are fake, for exemple only)
+Optional query parameters available:
+* customer_created_start - filters results by `date_created >= customer_created_start`
+* customer_created_end - filters results by `date_created <= customer_created_end`
+
+Response (note values are fake, for example only)
 ```
 {
     "stt": "OK",
@@ -484,6 +492,8 @@ Response (note values are fake, for exemple only)
             "email": "panther@pink.com",
             "phone": "220000000",
             "country": "Portugal",
+            "date_created": "2022-03-17 15:41:07",
+            "date_modified": "2022-03-17 15:41:07",
             "newsletter": "no",
             "billing_name": null,
             "billing_address": null,
