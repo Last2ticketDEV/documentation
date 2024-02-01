@@ -430,8 +430,8 @@ GET /graph/exportsales/<EVENT_ID>?api_key=<YOUR_API_KEY>
 ```
 
 Optional query parameters available:
-* start - filters results by `date_paid >= customer_created_start`
-* end - filters results by `date_paid <= customer_created_end`
+* start - filters results by `date_paid >= start`
+* end - filters results by `date_paid <= end`
 
 Response (note values are fake, for example only)
 ```
