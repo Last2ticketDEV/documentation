@@ -480,6 +480,8 @@ GET /user/customers?api_key=<YOUR_API_KEY>
 Optional query parameters available:
 * customer_created_start - filters results by `date_created >= customer_created_start`
 * customer_created_end - filters results by `date_created <= customer_created_end`
+* customer_modified_start - filters results by `date_modified >= customer_modified_start`
+* customer_modified_end - filters results by `date_modified <= customer_modified_end`
 
 Response (note values are fake, for example only)
 ```
