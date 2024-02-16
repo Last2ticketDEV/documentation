@@ -432,6 +432,8 @@ GET /graph/exportsales/<EVENT_ID>?api_key=<YOUR_API_KEY>
 Optional query parameters available:
 * start - filters results by `date_paid >= start`
 * end - filters results by `date_paid <= end`
+* checkin_start - filters results by `checkin_date_enter >= checkin_start`
+* checkin_end - filters results by `checkin_date_enter <= checkin_end`
 
 Response (note values are fake, for example only)
 ```
@@ -465,7 +467,6 @@ Response (note values are fake, for example only)
         "billing_vat": null,
         "source": "pos_web"
     },
-
 ```
 
 ## User
