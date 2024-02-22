@@ -112,6 +112,49 @@ https://api.last2ticket.com/events/<EVENT_ID>/items?api_key=<YOUR_API_KEY>
 }
 ```
 
+### /events/{event_id}/generic_invites
+List the generic invites for a given event.
+```
+https://api.last2ticket.com/events/<EVENT_ID>/generic_invites?api_key=<YOUR_API_KEY>
+```
+
+##### Success Response
+```
+{
+  "stt": "OK",
+  "invites": [
+    {
+      "event_id": 1234,
+      "seat_number": "1GI65c0c7514a600",
+      "validation_date": "05-02-2024 11:32:33",
+      "status": "SOLD",
+      "name": "User 1",
+      "email": "user1@last2ticket.com",
+      "empresa": "l2t",
+      "code": "123-l2t",
+      "eid": "1234",
+      "cc": "user1@last2ticket.com",
+      "plugin": "GenericInvite"
+    },
+    {
+      "event_id": 1234,
+      "seat_number": "1GI65c0c7514a601",
+      "validation_date": "05-02-2024 12:32:33",
+      "status": "ENTR",
+      "name": "User 2",
+      "email": "user2@last2ticket.com",
+      "empresa": "l2t",
+      "code": "124-l2t",
+      "eid": "1234",
+      "cc": "user2@last2ticket.com",
+      "plugin": "GenericInvite",
+      "user_id": 999999,
+      "username": "CHECKIN_USER1"
+    }
+  ]
+}
+```
+
 ## Tickets
 ###  /ticket/checkin/code/{code}
 Ticket checking, this endpoint is used to checkin in last2ticket system a ticket with your specific vendor id (external_id) that you use in your platform. 
