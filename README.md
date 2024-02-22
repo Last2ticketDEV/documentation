@@ -1,4 +1,6 @@
-![alt text](https://hello.last2ticket.com/wp-content/uploads/2018/10/Logo-L2T-01.svg)
+![Logo-L2T](https://github.com/Last2ticketDEV/documentation/assets/1148109/467f4156-e2a6-4fbe-a941-9c46fe18fc49)
+
+
 
 # API Docs
 This documentation is targeted at external developers integrating with Last2Ticket public API.
