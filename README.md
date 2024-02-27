@@ -68,8 +68,8 @@ https://api.last2ticket.com/events/list?api_key=<YOUR_API_KEY>
 ```
 
 Optional query parameters available:
-* event_start - filters results by `earliest session >= event_start`
-* event_end - filters results by `latest session <= event_end`
+* event_start: date (format - yyyy-mm-dd) - filters results by `earliest session >= event_start`
+* event_end: date (format - yyyy-mm-dd) - filters results by `latest session <= event_end`
 
 ##### Success Response
 ```
@@ -487,10 +487,10 @@ GET /graph/exportsales/<EVENT_ID>?api_key=<YOUR_API_KEY>
 ```
 
 Optional query parameters available:
-* start - filters results by `date_paid >= start`
-* end - filters results by `date_paid <= end`
-* checkin_start - filters results by `checkin_date_enter >= checkin_start`
-* checkin_end - filters results by `checkin_date_enter <= checkin_end`
+* start: date (format - yyyy-mm-dd) - filters results by `date_paid >= start`
+* end: date (format - yyyy-mm-dd) - filters results by `date_paid <= end`
+* checkin_start: date (format - yyyy-mm-dd) - filters results by `checkin_date_enter >= checkin_start`
+* checkin_end: date (format - yyyy-mm-dd) - filters results by `checkin_date_enter <= checkin_end`
 
 Response (note values are fake, for example only)
 ```
@@ -536,10 +536,10 @@ GET /user/customers?api_key=<YOUR_API_KEY>
 ```
 
 Optional query parameters available:
-* customer_created_start - filters results by `date_created >= customer_created_start`
-* customer_created_end - filters results by `date_created <= customer_created_end`
-* customer_modified_start - filters results by `date_modified >= customer_modified_start`
-* customer_modified_end - filters results by `date_modified <= customer_modified_end`
+* customer_created_start : date (format - yyyy-mm-dd) - filters results by `date_created >= customer_created_start`
+* customer_created_end: date (format - yyyy-mm-dd) - filters results by `date_created <= customer_created_end`
+* customer_modified_start: date (format - yyyy-mm-dd) - filters results by `date_modified >= customer_modified_start`
+* customer_modified_end: date (format - yyyy-mm-dd) - filters results by `date_modified <= customer_modified_end`
 
 Response (note values are fake, for example only)
 ```
