@@ -67,16 +67,28 @@ List the events the user has permissions to view.
 https://api.last2ticket.com/events/list?api_key=<YOUR_API_KEY>
 ```
 
+Optional query parameters available:
+* event_start - filters results by `earliest session >= event_start`
+* event_end - filters results by `latest session <= event_end`
+
 ##### Success Response
 ```
 {
     "stt": "OK",
     "message": {
-        "text": "List of events user - [USER_ID] can view.",
         "events": [
-            EVENT_1,
-            EVENT_2,
-            EVENT_3,
+            {
+                "id": 1,
+                "name": "Event 1",
+                "event_start": "2017-03-10 21:30:00",
+                "event_end": "2017-03-10 23:00:00"
+            },
+            {
+                "id": 2,
+                "name": "Event 2",
+                "event_start": "2017-03-11 18:00:00",
+                "event_end": "2017-03-11 19:30:00"
+            },
             ...
         ]
     }
