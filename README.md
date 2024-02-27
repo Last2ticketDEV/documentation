@@ -7,6 +7,8 @@ This documentation is targeted at external developers integrating with Last2Tick
 
 ### API - https://api.last2ticket.com
 
+# Authorization
+
 To access the API you must request an api_key to Last2Ticket admin. 
 All requests to the api must provide a valid key 
 
@@ -25,8 +27,6 @@ https://api.last2ticket.com/some/endpoint?api_key=<YOUR_API_KEY>
 }
 ```
 
-
----
 # Endpoints
 ## Events
 
