@@ -17,7 +17,7 @@ All requests to the api must provide a valid key
 https://api.last2ticket.com/some/endpoint?api_key=<YOUR_API_KEY>
 ```
 - If no api_key is provided the API return error 
-```
+```json
 {
   "code": 100,
   "stt": "NOK",
@@ -37,13 +37,13 @@ https://api.last2ticket.com/events/<EVENT_ID>?api_key=<YOUR_API_KEY>
 ```
 
 ##### Success Response
-```
+```json
 {
     "stt": "OK",
     "Event": {
-        "id": EVENT_ID,
+        "id": "EVENT_ID",
         "name": "MY BIG EVENT",
-        "user_id": USER_ID,
+        "user_id": "USER_ID",
         "label": null,
         "date": "2024-01-11 09:30:53",
         "description": "Very cool event",
@@ -72,7 +72,7 @@ Optional query parameters available:
 * event_end: date (format - yyyy-mm-dd) - filters results by `latest session <= event_end`
 
 ##### Success Response
-```
+```json
 {
     "stt": "OK",
     "message": {
@@ -102,22 +102,22 @@ https://api.last2ticket.com/events/<EVENT_ID>/items?api_key=<YOUR_API_KEY>
 ```
 
 ##### Success Response
-```
+```json
 {
     "stt": "OK",
     "message": {
-        "text": List of items for event [EVENT_ID].",
+        "text": "List of items for event [EVENT_ID].",
         "items": [
             {
-                "id": ITEM_1,
-                "event_id": EVENT_ID,
-                "session_id": SESSION_A,
+                "id": "ITEM_1",
+                "event_id": "EVENT_ID",
+                "session_id": "SESSION_A",
                 "price": "10.0000",
                 "category_name": "Bilhete XPTO"
             }, {
-                "id": ITEM_2,
-                "event_id": EVENT_ID,
-                "session_id": SESSION_B,
+                "id": "ITEM_2",
+                "event_id": "EVENT_ID",
+                "session_id": "SESSION_B",
                 "price": "5.0000",
                 "category_name": "Bilhete ABCD"
             }
@@ -133,7 +133,7 @@ https://api.last2ticket.com/events/<EVENT_ID>/generic_invites?api_key=<YOUR_API_
 ```
 
 ##### Success Response
-```
+```json
 {
   "stt": "OK",
   "invites": [
@@ -177,7 +177,7 @@ https://api.last2ticket.com/ticket/checkin/code/<YOUR_CODE>?api_key=<YOUR_API_KE
 ```
 
 ##### Success Response
-```
+```json
 {
   "stt": "OK",
   "message": {
@@ -189,7 +189,7 @@ https://api.last2ticket.com/ticket/checkin/code/<YOUR_CODE>?api_key=<YOUR_API_KE
 
 ##### Errors
 External code not found - this code is not associated with any sold ticket in Last2Ticket platform.
-```
+```json
 {
   "stt": "NOK",
   "message": {
@@ -239,7 +239,7 @@ List discount codes for event_id
 GET /discount-code/list/event/<EVENT_ID>?api_key=<YOUR_API_KEY>
 ```
 Response sample
-```
+```json
 {
     "stt": "OK",
     "message": {
@@ -274,7 +274,7 @@ Input parameters
 
 
 Payload sample
-```
+```json
 {
     "code": "MEGA",
     "value": 5,
@@ -295,12 +295,15 @@ Get a discount code detailed information.
 GET /discount-code/<DISCOUNT_ID>?api_key=<YOUR_API_KEY>
 ```
 Response
-```
-"message": {
-    "discount_id": "12345",
-    "text": "Discount details",
-    "discount": "{\"id\":12345,\"type\":\"percent\",\"value\":\"5.0000\",\"code\":\"MEGA\",\"limit\":100,\"in_cart\":0,\"used\":0,\"expires\":\"2023-12-21\",\"active\":\"yes\"}"
-},
+```json
+{
+    "stt": "OK",
+    "message": {
+        "discount_id": "12345",
+        "text": "Discount details",
+        "discount": "{\"id\":12345,\"type\":\"percent\",\"value\":\"5.0000\",\"code\":\"MEGA\",\"limit\":100,\"in_cart\":0,\"used\":0,\"expires\":\"2023-12-21\",\"active\":\"yes\"}"
+    },
+}
 ```
 
 ### Get discount events
@@ -309,14 +312,17 @@ Get discount code events (and items) for discount_id
 GET /discount-code/<DISCOUNT_ID>/events?api_key=<YOUR_API_KEY>
 ``` 
 Response
-```
-"message": {
-    "discount_id": "12345",
-    "text": "Discount events list",
-    "discount_events": "[
-        {\"id\":444,\"discount_id\":12345,\"events_id\":500,\"item_id\":10},
-        {\"id\":239007,\"discount_id\":12345,\"events_id\":500,\"item_id\":20}]"
-},
+```json
+{
+    "stt": "OK",
+    "message": {
+        "discount_id": "12345",
+        "text": "Discount events list",
+        "discount_events": "[
+            {\"id\":444,\"discount_id\":12345,\"events_id\":500,\"item_id\":10},
+            {\"id\":239007,\"discount_id\":12345,\"events_id\":500,\"item_id\":20}]"
+    },
+}
 ```
 
 ### Activate
@@ -325,12 +331,15 @@ Activate a discount code.
 PUT /discount-code/<DISCOUNT_ID>/activate?api_key=<YOUR_API_KEY>
 ```
 Response
-```
-"message": {
-    "discount_id": "DISCOUNT_ID",
-    "text": "Activated discount: DISCOUNT_ID",
-    "active": "yes"
-},
+```json
+{
+    "stt": "OK",
+    "message": {
+        "discount_id": "DISCOUNT_ID",
+        "text": "Activated discount: DISCOUNT_ID",
+        "active": "yes"
+    },
+}
 ```
 
 ### Deactivate
@@ -339,12 +348,15 @@ Deactivate a discount code.
 PUT /discount-code/<DISCOUNT_ID>/deactivate?api_key=<YOUR_API_KEY>
 ```
 Response
-```
-"message": {
-    "discount_id": "DISCOUNT_ID",
-    "text": "Deactivate discount: DISCOUNT_ID",
-    "active": "no"
-},
+```json
+{
+    "stt": "OK",
+    "message": {
+        "discount_id": "DISCOUNT_ID",
+        "text": "Deactivate discount: DISCOUNT_ID",
+        "active": "no"
+    },
+}
 ```
 
 ### Add item
@@ -354,13 +366,16 @@ Associate an item to an existing discount code
 PUT /discount-code/<DISCOUNT_ID>/event/<EVENT_ID>/item/<ITEM_ID>?api_key=<YOUR_API_KEY>
 ```
 Response
-```
-"message": {
-    "discount_id": "DISCOUNT_ID",
-    "event_id": "EVENT_ID",
-    "item_id": "ITEM_ID",
-    "text": "Added event+item to discount",
-    "relation_id": 123456
+```json
+{
+    "stt": "OK",
+    "message": {
+        "discount_id": "DISCOUNT_ID",
+        "event_id": "EVENT_ID",
+        "item_id": "ITEM_ID",
+        "text": "Added event+item to discount",
+        "relation_id": 123456
+    }
 }
 ```
 
@@ -372,19 +387,22 @@ GET discount-code/<DISCOUNT_ID>/event/<EVENT_ID>/item/<ITEM_ID>?api_key=<YOUR_AP
 ```
 
 Response
-```
-"message": {
-    "discount_id": "DISCOUNT_ID",
-    "event_id": "EVENT_ID",
-    "item_id": "ITEM_ID",
-    "text": "Got event+item relation to discount",
-    "relation": {
-        "id": EVENT_ID,
-        "discount_id": DISCOUNT_ID,
-        "events_id": EVENT_ID,
-        "item_id": 123456
-    }
-},
+```json
+{
+    "stt": "OK",
+    "message": {
+        "discount_id": "DISCOUNT_ID",
+        "event_id": "EVENT_ID",
+        "item_id": "ITEM_ID",
+        "text": "Got event+item relation to discount",
+        "relation": {
+            "id": "EVENT_ID",
+            "discount_id": "DISCOUNT_ID",
+            "events_id": "EVENT_ID",
+            "item_id": 123456
+        }
+    },
+}
 ```
 
 ### Delete item
@@ -394,14 +412,17 @@ Delete the relation between an item and a discount code
 DELETE /discount-code/<DISCOUNT_ID>/event/<EVENT_ID>/item/<ITEM_ID>?api_key=<YOUR_API_KEY>
 ```
 Response
-```
-"message": {
-    "discount_id": "DISCOUNT_ID",
-    "event_id": "EVENT_ID",
-    "item_id": "ITEM_ID",
-    "text": "Deleted event+item from discount",
-    "deleted": true
-},
+```json
+{
+    "stt": "OK",
+    "message": {
+        "discount_id": "DISCOUNT_ID",
+        "event_id": "EVENT_ID",
+        "item_id": "ITEM_ID",
+        "text": "Deleted event+item from discount",
+        "deleted": true
+    },
+}
 ```
 
 ### Add event
@@ -411,13 +432,16 @@ Associate an event to an existing discount code
 PUT /discount-code/<DISCOUNT_ID>/event/<EVENT_ID>?api_key=<YOUR_API_KEY>
 ```
 Response
-```
-"message": {
-    "discount_id": "DISCOUNT_ID",
-    "event_id": "EVENT_ID",
-    "text": "Added event to discount",
-    "relation_id": 12345
-},
+```json
+{
+    "stt": "OK",
+    "message": {
+        "discount_id": "DISCOUNT_ID",
+        "event_id": "EVENT_ID",
+        "text": "Added event to discount",
+        "relation_id": 12345
+    },
+}
 ```
 
 ### Get event
@@ -427,26 +451,29 @@ Get the relation id between an event and an existing discount code
 GET /discount-code/<DISCOUNT_ID>/event/<EVENT_ID>?api_key=<YOUR_API_KEY>
 ```
 Response
-```
-"message": {
-    "discount_id": "DISCOUNT_ID",
-    "event_id": "EVENT_ID",
-    "text": "Got event+item relation to discount",
-    "relations": [
-        {
-            "id": 12345,
-            "discount_id": DISCOUNT_ID,
-            "event_id": EVENT_ID,
-            "item_id": 10
-        },
-        {
-            "id": 54321,
-            "discount_id": DISCOUNT_ID,
-            "event_id": EVENT_ID,
-            "item_id": 20
-        }
-    ]
-},
+```json
+{
+    "stt": "OK",
+    "message": {
+        "discount_id": "DISCOUNT_ID",
+        "event_id": "EVENT_ID",
+        "text": "Got event+item relation to discount",
+        "relations": [
+            {
+                "id": 12345,
+                "discount_id": "DISCOUNT_ID",
+                "event_id": "EVENT_ID",
+                "item_id": 10
+            },
+            {
+                "id": 54321,
+                "discount_id": "DISCOUNT_ID",
+                "event_id": "EVENT_ID",
+                "item_id": 20
+            }
+        ]
+    },
+}
 ```
 
 
@@ -457,20 +484,23 @@ Delete the relation id between an event and an existing discount code
 DELETE /discount-code/<DISCOUNT_ID>/event/<EVENT_ID>?api_key=<YOUR_API_KEY>
 ```
 
-```
-"message": {
-    "discount_id": "DISCOUNT_ID",
-    "event_id": "EVENT_ID",
-    "text": "Deleted event from discount",
-    "relation_id": true
-},
+```json
+{
+    "stt": "OK",
+    "message": {
+        "discount_id": "DISCOUNT_ID",
+        "event_id": "EVENT_ID",
+        "text": "Deleted event from discount",
+        "relation_id": true
+    },
+}
 ```
 
 
 ### Error messages
 E.g. HTTP 400 - Invalid code
 
-```
+```json
 {
     "stt":"NOK",
     "message":"[Invalid request] Code: MEGA_SALE_2022 already in use, please select a new one."
@@ -493,37 +523,41 @@ Optional query parameters available:
 * checkin_end: date (format - yyyy-mm-dd) - filters results by `checkin_date_enter <= checkin_end`
 
 Response (note values are fake, for example only)
-```
-"Event_4843": [
-    {
-        "checkin_date_enter": null,
-        "checkin_status": null,
-        "date_paid": "2024-01-11 16:00:00",
-        "order_id": 1234567,
-        "order_item_id": 7654321,
-        "total_order_price": "100.0000",
-        "payment_method_id": 5,
-        "payment_name": "cash",
-        "event_id": 0000,
-        "name": "My Great event",
-        "total_order_tickets": 10,
-        "price_per_ticket": "10.0000",
-        "cat_id": 1234,
-        "description": "My Great event | 2024-01-01 22:00:00 | 31st January | 23h,
-        "category_names": "31st January | 23h",
-        "session_start_date": "2024-01-01 22:00:00",
-        "customer_name": "Mike Miguel",
-        "phone": null,
-        "country": "NF",
-        "billing_name": null,
-        "billing_address": null,
-        "billing_postcode": null,
-        "billing_city": null,
-        "billing_country": null,
-        "email": "mike@miguel.com",
-        "billing_vat": null,
-        "source": "pos_web"
-    },
+```json
+{
+    "stt": "OK",
+    "Event_4843": [
+        {
+            "checkin_date_enter": null,
+            "checkin_status": null,
+            "date_paid": "2024-01-11 16:00:00",
+            "order_id": 1234567,
+            "order_item_id": 7654321,
+            "total_order_price": "100.0000",
+            "payment_method_id": 5,
+            "payment_name": "cash",
+            "event_id": "0000",
+            "name": "My Great event",
+            "total_order_tickets": 10,
+            "price_per_ticket": "10.0000",
+            "cat_id": 1234,
+            "description": "My Great event | 2024-01-01 22:00:00 | 31st January | 23h",
+            "category_names": "31st January | 23h",
+            "session_start_date": "2024-01-01 22:00:00",
+            "customer_name": "Mike Miguel",
+            "phone": null,
+            "country": "NF",
+            "billing_name": null,
+            "billing_address": null,
+            "billing_postcode": null,
+            "billing_city": null,
+            "billing_country": null,
+            "email": "mike@miguel.com",
+            "billing_vat": null,
+            "source": "pos_web"
+        },
+    ]
+}
 ```
 
 ## User
@@ -542,7 +576,7 @@ Optional query parameters available:
 * customer_modified_end: date (format - yyyy-mm-dd) - filters results by `date_modified <= customer_modified_end`
 
 Response (note values are fake, for example only)
-```
+```json
 {
     "stt": "OK",
     "customers": [
@@ -562,5 +596,6 @@ Response (note values are fake, for example only)
             "billing_country": null,
             "billing_vat": null
         }, ...
-
-```  
+    ]
+}
+```
