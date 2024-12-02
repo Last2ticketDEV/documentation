@@ -585,7 +585,7 @@ Response (note values are fake, for example only)
       "order_item_id": 711100,
       "ticket_number": "11997233098111000",
       "customer_id": 200000,
-      "customer_name": ""Mike Miguel",
+      "customer_name": "Mike Miguel",
       "customer_email": "mike@mail.com",
       "extra_info": null,
       "price": "10,00",
