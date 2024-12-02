@@ -538,6 +538,8 @@ Response (note values are fake, for example only)
             "payment_name": "cash",
             "event_id": "0000",
             "name": "My Great event",
+            "event_type":"Party",
+            "venue_name":"Porto City",
             "total_order_tickets": 10,
             "price_per_ticket": "10.0000",
             "cat_id": 1234,
