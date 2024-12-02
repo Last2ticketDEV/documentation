@@ -562,6 +562,66 @@ Response (note values are fake, for example only)
 }
 ```
 
+### Export Event
+Get details about a specific event, including tickets and attendees.
+
+```
+GET /graph/exportevent/<EVENT_ID>?api_key=<YOUR_API_KEY>
+```
+
+Optional query parameters available:
+* start: date (format - yyyy-mm-dd) - filters results by `date_paid >= start`
+* end: date (format - yyyy-mm-dd) - filters results by `date_paid <= end`
+* checkin_start: date (format - yyyy-mm-dd) - filters results by `checkin_date_enter >= checkin_start`
+* checkin_end: date (format - yyyy-mm-dd) - filters results by `checkin_date_enter <= checkin_end`
+
+Response (note values are fake, for example only)
+```json
+{
+  "stt": "OK",
+  "Event_4843": [
+    {
+      "order_id": 6611111,
+      "order_item_id": 711100,
+      "ticket_number": "11997233098111000",
+      "customer_id": 200000,
+      "customer_name": ""Mike Miguel",
+      "customer_email": "mike@mail.com",
+      "extra_info": null,
+      "price": "10,00",
+      "discount_code": null,
+      "discount": "0,00",
+      "total_order": "10,00",
+      "order_status": "paid",
+      "payment": "stripe",
+      "payment_country": null,
+      "date_paid": "27-02-2024",
+      "hour_paid": "01:02:11",
+      "category": "Adult \/ Adulto",
+      "seat": null,
+      "zone": null,
+      "checkin": "EXIT",
+      "validations": "27\/02\/2018 19:18:35",
+      "session_name": null,
+      "session_date_start": "2018-02-05 10:00:00",
+      "user_name": "Mike Miguel",
+      "user_phone": "221110000",
+      "billing_name": "Mike Miguel",
+      "billing_vat": "164000111",
+      "billing_address": "Porto",
+      "billing_postcode": "4200-000",
+      "billing_city": "Porto",
+      "billing_country": "Portugal",
+      "access_code": null,
+      "operator_id": 1002,
+      "item_extra_info": null,
+      "event_tags": []
+    }
+  ]
+}
+
+```
+
 ## User
 ### Customers list
 Get list of customers (who bough tickets) of any event from a specific user
