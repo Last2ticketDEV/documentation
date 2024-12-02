@@ -569,12 +569,6 @@ Get details about a specific event, including tickets and attendees.
 GET /graph/exportevent/<EVENT_ID>?api_key=<YOUR_API_KEY>
 ```
 
-Optional query parameters available:
-* start: date (format - yyyy-mm-dd) - filters results by `date_paid >= start`
-* end: date (format - yyyy-mm-dd) - filters results by `date_paid <= end`
-* checkin_start: date (format - yyyy-mm-dd) - filters results by `checkin_date_enter >= checkin_start`
-* checkin_end: date (format - yyyy-mm-dd) - filters results by `checkin_date_enter <= checkin_end`
-
 Response (note values are fake, for example only)
 ```json
 {
